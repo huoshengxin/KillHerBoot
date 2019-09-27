@@ -2,15 +2,15 @@ package com.kill.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 //RestController相当于同时使用@Controller和@ResponseBody注解
-//@RestController
+@RestController
 //加载classpath目录下的shiyanlou.properties文件, 如果是application.properties则不需要配置
 @PropertySource(value = "classpath:shiyanlou.properties")
 //因为需要返回视图，所以不能使用@ResponseBody
-@Controller
+//@Controller
 public class ShiyanlouController {
 
     //使用@Value注解注入属性值
@@ -19,9 +19,22 @@ public class ShiyanlouController {
     @Value("${shiyanlou.test}")
     private String shiyanlou;
 
+    @Value("${test_key}")
+    private String testKey;
+
+    @Value("${spring.datasource.url}")
+    private String jdbcUrl;
+
     @RequestMapping("shiyanlou")
     public String shiyanlou() {
 //        return shiyanlou;
         return "shiyanlou";
     }
+
+    @RequestMapping("active")
+    public String active(){
+        return testKey+"----"+jdbcUrl;
+    }
+
+
 }
