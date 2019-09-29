@@ -30,4 +30,9 @@ public interface UserService {  //extends BaseService<User>{
      * 返回所有信息
      */
     List<User> list();
+
+    /**
+     * 查询所有客户
+     */
+    List<User> findAll();
 }

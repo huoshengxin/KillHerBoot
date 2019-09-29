@@ -1,6 +1,7 @@
 package com.kill.dao;
 
 import com.kill.domain.User;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -29,4 +30,10 @@ public interface UserMapper { //} extends BaseMapper<User> {
      * 返回所有信息
      */
     List<User> list();
+
+    /**
+     * 查询所有的用户
+     */
+    @Select("select * from user")
+    List<User> findAll();
 }

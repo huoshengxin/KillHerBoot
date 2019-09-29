@@ -41,6 +41,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.list();
     }
 
+    /**
+     * 查询所有客户
+     */
+    @Override
+    public List<User> findAll() {
+        return userMapper.findAll();
+    }
+
 
 //    @Resource Hibernate用
 //    private UserRepository userRepository;
